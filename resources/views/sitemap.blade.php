@@ -5,13 +5,13 @@
 
 @foreach ($entries as $entry)
     <url>
-        <loc>{{ $entry->loc }}</loc>
-        <lastmod>{{ $entry->lastmod->format("c") }}</lastmod>
-        @if ($entry->changefreq)
-            <changefreq>{{ $entry->changefreq }}</changefreq>
+        <loc>{{ $entry['loc'] }}</loc>
+        <lastmod>{{ $entry['lastmod']->format("c") }}</lastmod>
+        @if ($entry['changefreq'])
+            <changefreq>{{ $entry['changefreq'] }}</changefreq>
         @endif
-        <priority>@if ($entry->priority){{ $entry->priority }}
-            @elseif ($entry->path === '/') 1
+        <priority>@if ($entry['priority']){{ $entry['priority'] }}
+            @elseif ($entry['path'] === '/') 1
             @else 0.8 @endif
         </priority>
     </url>
