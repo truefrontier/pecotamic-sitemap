@@ -58,8 +58,6 @@ class SitemapController extends Controller
      */
     private static function isUsingAntlersTemplate(View $view): bool
     {
-        return Str::endsWith($view->getPath(), collect(AntlersEngine::EXTENSIONS)->map(function ($extension) {
-            return '.' . $extension;
-        })->all());
+        return $view->getPath();
     }
 }
